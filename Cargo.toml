@@ -3,4 +3,22 @@ name = "bevy_dominoes"
 version = "0.1.0"
 edition = "2021"
 
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = 3
+panic = 'abort'
+debug = 0
+strip = true
+lto = "thin"
+codegen-units = 1
+
 [dependencies]
+bevy = { version = "0.14.0", features = [
+    "bevy_state"
+]}
+bevy_kira_audio = "0.20.0"
+bevy_lunex = "0.2.0"
+dominoes_oma = "0.1.0"
+
